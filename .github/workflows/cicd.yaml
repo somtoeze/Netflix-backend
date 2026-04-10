@@ -13,5 +13,5 @@ on:
        uses: actions/checkout@v2
 
        -name: Docker build
-         run:
+         run: 
             hostnamectl
