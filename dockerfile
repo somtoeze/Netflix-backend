@@ -1,25 +1,34 @@
-# Use official Maven image (has Java + Maven already)
-FROM Ubuntu
+FROM ubuntu
 
-   #intall  necessary packages
-RUN apt-get update && apt-get get install -y
-RUN apt install openjdk-17-jre headless -y
+# Install necessary packages
+#============================
+RUN apt-get update && apt-get install -y 
+RUN apt install openjdk-17-jre-headless -y
 RUN apt install maven -y
 
-   #setting working directory
+# Set the working directory
 WORKDIR /app
 
-   #copy all files to directory
+# Copy source files and pom.xml
+COPY application.properties /app/src/main/resources/application.properties
 COPY ./src /app/src
 COPY ./pom.xml /app
 
-   #build the application
-RUN mvn -f  /app/pom.xml clean package -dskiptest
+# Build the application
+RUN mvn -f /app/pom.xml clean package
+RUN ls -la /app/target
+# Copy the built JAR file to the container
 
-   #copy the built jar file to the container
-COPY ./target/*.jar /app/app.jar
 
-   Expose 8080
+EXPOSE 8080
 
-    #Run the app
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
+
+
+# ==========================
+# FROM eclipse-temurin:25
+# RUN mkdir /opt/app
+# COPY japp.jar /opt/app
+# CMD ["java", "-jar", "/opt/app/japp.jar"]

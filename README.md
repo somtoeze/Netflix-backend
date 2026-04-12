@@ -1,6 +1,6 @@
 # 🎬 Netflix Backend
 
-**By Eze somtochukwu | Cloud • DevOps • Security**
+**By DigitalWitch | Cloud • DevOps • Security**
 
 ---
 
