@@ -5,13 +5,26 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-push1:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
     - name: Check out the repository
       uses: actions/checkout@v2
 
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+# Login to ECR
+#=============
+    - name: Login to ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
 
 
     - name: Docker build 
@@ -21,35 +34,9 @@ jobs:
         # cat application.properties
         docker build -t netflix_backend:latest .
 
-
-  build-and-push2:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Check out the repository
-      uses: actions/checkout@v2
-
-
-
-    - name: Docker build 
+    - name: Docker push
       run: |
-        echo "${{ vars.APPLICATION_PROPERTIES }}" > application.properties
-        # ls -la 
-        # cat application.properties
-        docker build -t netflix_backend:latest .
-
- build-and-push 3:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Check out the repository
-      uses: actions/checkout@v2
+        docker tag netflix_backend:latest 660119432667.dkr.ecr.us-east-2.amazonaws.com/netflix_backend:${GITHUB_RUN_NUMBER}
+        docker push 660119432667.dkr.ecr.us-east-2.amazonaws.com/netflix_backend:${GITHUB_RUN_NUMBER}
 
 
-
-    - name: Docker build 
-      run: |
-        echo "${{ vars.APPLICATION_PROPERTIES }}" > application.properties
-        # ls -la 
-        # cat application.properties
-        docker build -t netflix_backend:latest .
