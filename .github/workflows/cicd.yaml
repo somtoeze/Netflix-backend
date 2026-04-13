@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-push:
+  build-and-push1:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,3 +21,35 @@ jobs:
         # cat application.properties
         docker build -t netflix_backend:latest .
 
+
+  build-and-push2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+
+
+    - name: Docker build 
+      run: |
+        echo "${{ vars.APPLICATION_PROPERTIES }}" > application.properties
+        # ls -la 
+        # cat application.properties
+        docker build -t netflix_backend:latest .
+
+ build-and-push 3:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+
+
+    - name: Docker build 
+      run: |
+        echo "${{ vars.APPLICATION_PROPERTIES }}" > application.properties
+        # ls -la 
+        # cat application.properties
+        docker build -t netflix_backend:latest .
