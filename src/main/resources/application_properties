@@ -1,2 +1,2 @@
-spring.data.mongodb.database=moviedb
-spring.data.mongodb.uri=mongodb+srv://somto:ruBcrCyODjdt93fC@cluster0.oi5nsua.mongodb.net/
+spring.data.mongodb.database=${env.MONGO_DATABASE}
+spring.data.mongodb.uri=mongodb+srv://{MONGO_USER}:{MONGO_PASSWORD}@cluster0.xxxxx.mongodb.net
