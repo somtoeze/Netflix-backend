@@ -36,6 +36,6 @@ jobs:
 
     - name: Docker push
       run: |
-        docker tag backend:latest 660119432667.dkr.ecr.us-east-1.amazonaws.com/backend:latest
-        docker push 660119432667.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+        docker tag netflix-backend:latest 660119432667.dkr.ecr.us-east-1.amazonaws.com/netflix-backend:latest
+        docker push 660119432667.dkr.ecr.us-east-1.amazonaws.com/netflix-backend:latest
 
