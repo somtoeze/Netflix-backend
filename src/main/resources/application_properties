@@ -1,2 +1,8 @@
 spring.data.mongodb.database=${env.MONGO_DATABASE}
 spring.data.mongodb.uri=mongodb+srv://{MONGO_USER}:{MONGO_PASSWORD}@cluster0.xxxxx.mongodb.net
+
+
+MONGO_DATABASE=moviedb
+MONGO_USER=somto
+MONGO_PASSWORD=ruBcrCyODjdt93fC
+MONGO_CLUSTER=cluster0.oi5nsua.mongodb.net
