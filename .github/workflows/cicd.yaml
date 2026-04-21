@@ -32,7 +32,7 @@ jobs:
         echo "${{ vars.APPLICATION_PROPERTIES }}" > application.properties
         # ls -la 
         # cat application.properties
-        docker build -t netflix-backend:latest 
+        docker build -t netflix-backend:latest .
 
     - name: Docker push
       run: |
