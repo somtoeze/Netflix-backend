@@ -24,7 +24,7 @@ RUN mvn -f /app/pom.xml clean package
 RUN ls -la /app/target
 
 
-COPY target/app.jar app.jar
+COPY /app.jar app.jar
 
 EXPOSE 8080
 
