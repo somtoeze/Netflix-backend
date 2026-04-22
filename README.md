@@ -1,6 +1,6 @@
 # 🎬 Netflix Backend
 
-**By DigitalWitch | Cloud • DevOps • Security**
+**By Eze Somtochukwu  | Cloud • DevOps • Security**
 
 ---
 
@@ -138,4 +138,4 @@ java -jar target/{your_artifact_name}.jar
 
 Good luck with your learning and development journey! 🚀
 
-**— Engr. Smart Cares**
+**— Engr. Eze Somtochukwu **
