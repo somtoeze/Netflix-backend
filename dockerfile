@@ -8,9 +8,6 @@ RUN apt install maven -y
 # Build jar
 RUN mvn clean package -DskipTests
 
-# -----------------------
-FROM eclipse-temurin:17-jdk
-
 # Set the working directory
 WORKDIR /app
 
@@ -20,8 +17,8 @@ COPY ./src /app/src
 COPY ./pom.xml /app
 
 # Build the application
-RUN mvn -f /app/pom.xml clean package
-RUN ls -la /app/target
+RUN mvn -f /app/pom.xml clean package -DskipTests
+#RUN ls -la /app/target
 
 
 #COPY /app.jar app.jar
