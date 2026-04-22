@@ -18,7 +18,7 @@ COPY ./pom.xml /app
 RUN mvn -f /app/pom.xml clean package
 RUN ls -la /app/target
 
-#COPY --from=builder /app/target/*.jar app.jar
+COPY --from=builder /app/target/*.jar app.jar
 
 EXPOSE 8080
 
