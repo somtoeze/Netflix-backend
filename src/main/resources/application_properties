@@ -1,5 +1,5 @@
 spring.data.mongodb.database=${env.MONGO_DATABASE}
-spring.data.mongodb.uri=mongodb+srv://{MONGO_USER}:{MONGO_PASSWORD}@cluster0.xxxxx.mongodb.net
+spring.data.mongodb.uri=mongodb+srv://{MONGO_USER}:{MONGO_PASSWORD}@${MONGO_CLUSTER}/${MONGO_DATABASE}
 
 
 
